@@ -96,7 +96,7 @@ public class No206_ReverseLinkedList {
      * 递归解法：假设head节点之后的链表已经反转完成
      * a->b<-c<-d
      * 则接下来就是处理节点a和b之间
-     * 需要a.next.next = b
+     * 需要a.next.next = a
      * a.next = null (这一步很关键，否则将会造成循环链表）
      *
      * time 0ms, beat 100%
