@@ -56,44 +56,41 @@ public class No725_SplitListToParts {
 
     /**
      * time 0ms, beat 100%
-     * space 37.5MB, beat 5.06%
+     * space 37.4MB, beat 7.05%
      *
      * @param root
      * @param k
      * @return
      */
     public ListNode[] splitListToParts(ListNode root, int k) {
-        ListNode[] arr = new ListNode[k];
+        ListNode[] ans = new ListNode[k];
         if (root == null) {
-            return arr;
+            return ans;
         } else if (k == 1) {
-            arr[0] = root;
-            return arr;
+            ans[0] = root;
+            return ans;
         }
-        //遍历链表计算节点总数量size
-        int size = 0;
+        //遍历链表计算节点总数量count
+        int count = 0;
         ListNode p = root;
         while (p != null) {
-            size++;
+            count++;
             p = p.next;
         }
         //把链表分隔成k个part
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < k && root != null; i++) {
             //计算每一part的节点数量
-            int partSize = size / (k-i) + (size % (k-i) > 0 ? 1 : 0);
-            size = size - partSize;
-            arr[i] = root;
-            while (partSize > 0) {
-                ListNode nextTemp = root.next;
-                //截断链表
-                if (partSize == 1) {
-                    root.next = null;
-                }
-                root = nextTemp;
-                partSize--;
+            int partCount = count / (k-i) + (count % (k-i) > 0 ? 1 : 0);
+            count = count - partCount;
+            ans[i] = root;
+            while (--partCount > 0) {
+                root = root.next;
             }
+            ListNode nextHead = root.next;
+            root.next = null;
+            root = nextHead;
         }
-        return arr;
+        return ans;
     }
 
     public static void main(String[] args) {
@@ -108,7 +105,7 @@ public class No725_SplitListToParts {
         root.next.next.next.next.next.next.next.next = new ListNode(9);
         root.next.next.next.next.next.next.next.next.next = new ListNode(10);
         No725_SplitListToParts solution = new No725_SplitListToParts();
-        ListNode[] ret = solution.splitListToParts(root, 6);
+        ListNode[] ret = solution.splitListToParts(root, 11);
         for (ListNode node : ret) {
             System.out.println(node);
         }
