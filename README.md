@@ -40,7 +40,9 @@
 |160|[相交链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_160_IntersectionOfTwoLinkedList.java)|简单|
 |203|[移除链表元素](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_203_RemoveElements.java)|简单|
 |206|[反转链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_206_ReverseLinkedList.java)|简单|
+|225|[用队列实现栈](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_225_ImplementStackUsingQueue.java)|简单|
 |226|[翻转二叉树](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_226_InverseBinaryTree.java)|简单|
+|234|[用栈实现队列](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_232_ImplementQueueUsingStack.java)|简单|
 |234|[回文链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_234_PalindromeLinkedList.java)|简单|
 |237|[删除链表中的节点](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_237_DeleteNodeInLinkedList.java)|简单|
 |257|[二叉树的所有路径](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_257_BinaryTreePaths.java)|简单|
