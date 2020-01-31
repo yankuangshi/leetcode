@@ -50,6 +50,7 @@
 |437|[路径总和 III](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_437_PathSumIII.java)|简单|tree|
 |445|[两数相加 II](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_445_AddTwoNumII.java)|中等|linked list|
 |496|[下一个更大元素 I](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_496_NextGreaterElement.java)|中等| stack |
+|503|[下一个更大元素 II](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_503_NextGreaterElementII.java)|中等| stack |
 |707|[设计链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_707_DesignLinkedList.java)|中等|linked list, design|
 |725|[分隔链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_725_SplitListToParts.java)|中等|linked list|
 |876|[链表的中间结点](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_876_MiddleNode.java)|简单|linked list|

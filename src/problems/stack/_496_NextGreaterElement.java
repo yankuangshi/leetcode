@@ -106,31 +106,31 @@ public class _496_NextGreaterElement {
      * 需要一个栈和一个哈希表，栈用于实现单调栈，哈希表用于存储每个数字对应的右边的第一个比它的数
      *
      * 我们构造一个栈顶到栈底单调递增的栈
-     * step1：2入栈
-     *
+     * step1：[2,1,3,4] stack empty,push(2)
+     *         ^
      * |   |
      * |   |
      * |_2_|
      *
-     * step2：1入栈（1比2小）
-     *
+     * step2：[2,1,3,4] 1<top(2),push(2)
+     *           ^
      * |   |
      * | 1 |
      * |_2_|
      *
-     * step3：3入栈，但是比栈顶1大，所以需要弹出栈顶数字1，继续比较栈顶数2，继续弹出数字2，栈空，3入栈
-     *
+     * step3：[2,1,3,4] 3>top(1),pop(1),3>top(2),pop(2),push(3)
+     *             ^
      * |   |   mappings (1,3) (2,3)
      * |   |
      * |_3_|
      *
-     * step4：4入栈，但是比栈顶3大，所以需要弹出栈顶数字3，栈空，4入栈
-     *
+     * step4：[2,1,3,4] 4>top(3),pop(3),push(4)
+     *               ^
      * |   |   mappings (1,3) (2,3) (3,4)
      * |   |
      * |_4_|
      *
-     * step5：清空栈，弹出栈顶4
+     * step5：pop(4)
      *
      * |   |   mappings (1,3) (2,3) (3,4) (4,-1)
      * |   |
@@ -141,6 +141,11 @@ public class _496_NextGreaterElement {
      * 数字1右边比它大的第一个数是3
      * 数字3右边比它大的第一个数是4
      * 数字4右边比它大的第一个数不存在，为-1
+     *
+     * 注意：这种解法有个局限就是必须保证nums2中的元素是唯一的，否则有可能覆盖哈希表中存储的值
+     * 例如[1,2,1,4,3]
+     * hashMap (1,2) (1,4) (2,4) (4,-1) (3,-1)
+     * 可见(1,4)会把原先的(1,2)覆盖掉
      *
      * time 4ms, beat 85.68%
      * space 37.6MB, beat 7.29%
@@ -157,12 +162,14 @@ public class _496_NextGreaterElement {
                 }
                 stack.push(n);
             }
-            while (!stack.isEmpty()) {
-                mappings.put(stack.pop(), -1);
-            }
+            //以下弹出栈中所有数字这步可以省去，在遍历nums1时，当hashmap中找不到相应数字时，赋值为-1即可
+//            while (!stack.isEmpty()) {
+//                mappings.put(stack.pop(), -1);
+//            }
             int[] ans = new int[nums1.length];
             for (int i = 0; i < nums1.length; i++) {
-                ans[i] = mappings.get(nums1[i]);
+//                ans[i] = mappings.get(nums1[i]);
+                ans[i] = mappings.getOrDefault(nums1[i], -1);
             }
             return ans;
         }
@@ -175,18 +182,44 @@ public class _496_NextGreaterElement {
      * 这些人面对你站成一列，如何求元素「2」的 Next Greater Number 呢？很简单，如果能够看到元素「2」，
      * 那么他后面可见的第一个人就是「2」的 Next Greater Number，因为比「2」小的元素身高不够，都被「2」挡住了，第一个露出来的就是答案。
      *
-     * 2  1  2   4   3
-     *           |
-     *           |   |
-     * |     |   |   |
-     * |  |  |   |   |
-     * -------------------
-     * 4  2  4   -1  -1
+     * 1  2  4   3
+     *       |
+     *       |   |
+     *    |  |   |
+     * |  |  |   |
+     * -----------
+     * 2  4  -1  -1
      *
      * 作者：labuladong
      * 链接：https://leetcode-cn.com/problems/next-greater-element-i/solution/dan-diao-zhan-jie-jue-next-greater-number-yi-lei-w/
      *
      * 该作者的解法是从后往前遍历nums2数组，并且构造一个栈顶到栈底单调递增栈
+     *
+     * step1：[1,2,4,3] stack empty,push(3)
+     *               ^
+     * |   |
+     * |   | mappings (3,-1)
+     * |_3_|
+     *
+     * step2：[1,2,4,3] 4>top(3),pop(3),push(4)
+     *             ^
+     * |   |
+     * |   | mappings (3,-1) (4,-1)
+     * |_4_|
+     *
+     * step3：[1,2,4,3] 2<top(4),push(2)
+     *           ^
+     * |   |
+     * | 2 | mappings (3,-1) (4,-1) (2,4)
+     * |_4_|
+     *
+     * step4：[1,2,4,3] 1<top(2),push(1)
+     *         ^
+     * | 1 |
+     * | 2 | mappings (3,-1) (4,-1) (2,4) (1,2)
+     * |_4_|
+     *
+     * 因此对于数组[1,2,4,3]，对应的next greater element数组为 [2,4,-1,-1]
      *
      * time 5ms, beat 66.13%
      * space 37.4MB, beat 13.54%
@@ -207,7 +240,7 @@ public class _496_NextGreaterElement {
             Map<Integer, Integer> mappings = new HashMap<>();
             Stack<Integer> stack = new Stack<>();
             for (int i = nums.length - 1; i >= 0; i--) {
-                while (!stack.isEmpty() && nums[i] > stack.peek()) {
+                while (!stack.isEmpty() && stack.peek() < nums[i]) {
                     //因为是构造单调递增栈，所以比nums[i]小的栈顶数字需要弹出，直到栈顶数字比nums[i]大或者栈为空
                     stack.pop();
                 }
