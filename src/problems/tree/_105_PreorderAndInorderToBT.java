@@ -31,7 +31,7 @@ import java.util.HashMap;
  * @author kyan
  * @date 2020/1/2
  */
-public class _105_PreorderAndinorderToBT {
+public class _105_PreorderAndInorderToBT {
 
     /**
      * 递归思路
