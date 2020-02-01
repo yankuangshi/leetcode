@@ -1,6 +1,6 @@
 package problems.stack;
 
-import java.util.Stack;
+import java.util.LinkedList;
 
 /**
  * 42. 接雨水
@@ -70,14 +70,14 @@ public class _42_TrappingRainWater {
      * 面积计算=[min(待入栈height,栈顶height) - 出栈height]*(待入栈height的下标 - 栈顶height的下标 - 1)
      * [min(2,1)-0]*(3-1-1)=1
      *
-     * time 7ms, beat 31.79%
-     * space 36.5MB, beat 97.54%
+     * time 5ms, beat 32.92%
+     * space 37.3MB, beat 81.32%
      */
     public static class Solution1 {
 
         public int trap(int[] heights) {
             int res = 0;
-            Stack<Integer> stack = new Stack<>();
+            LinkedList<Integer> stack = new LinkedList<>();
             for (int i = 0; i < heights.length; i++) {
                 while (!stack.isEmpty() && heights[stack.peek()] < heights[i]) {
                     int tempHeight = heights[stack.pop()];

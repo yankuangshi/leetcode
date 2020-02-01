@@ -1,7 +1,7 @@
 package problems.stack;
 
 import java.util.Arrays;
-import java.util.Stack;
+import java.util.LinkedList;
 
 /**
  * 739. 每日温度
@@ -95,13 +95,14 @@ public class _739_DailyTemperatures {
      * index = [0,1,2,3,4,5,6,7]
      * final = [1,1,4,2,1,1,0,0]
      *
-     * time 76ms, beat 46.05%
+     * time 35ms, beat 77.08%
+     * space 43.5MB, beat 19.12%
      */
     public static class Solution1 {
 
         public int[] dailyTemperatures(int[] T) {
             int[] days = new int[T.length];
-            Stack<Integer> stack = new Stack<>();
+            LinkedList<Integer> stack = new LinkedList<>();
             for (int i = T.length - 1; i >= 0; i--) {
                 while (!stack.isEmpty() && T[stack.peek()] <= T[i]) {
                     stack.pop();
@@ -120,14 +121,14 @@ public class _739_DailyTemperatures {
      * 思路2
      * 单调栈，正向遍历
      *
-     *time 61ms, beat 64.13%
-     *space 43.1MB, beat 31.23%
+     * time 21ms, beat 79.43%
+     * space 43.7MB, beat 15.30%
      */
     public static class Solution2 {
 
         public int[] dailyTemperatures(int[] T) {
             int[] days = new int[T.length];
-            Stack<Integer> stack = new Stack<>();
+            LinkedList<Integer> stack = new LinkedList<>();
             for (int i = 0; i < T.length; i++) {
                 while (!stack.isEmpty() && T[stack.peek()] < T[i]) {
                     int index = stack.pop();

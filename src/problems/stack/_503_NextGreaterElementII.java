@@ -1,7 +1,7 @@
 package problems.stack;
 
 import java.util.Arrays;
-import java.util.Stack;
+import java.util.LinkedList;
 
 /**
  * 503. 下一个更大元素 II
@@ -94,13 +94,13 @@ public class _503_NextGreaterElementII {
      *
      * 所以最后结果取前5位 [8,-1,8,2,3]
      *
-     * time 56ms, beat 42.59%
-     * space 40.4MB, beat 48.20%
+     * time 13ms, beat 92.77%
+     * space 40.6MB, beat 43.99%
      */
     public static class Solution1 {
 
         public int[] nextGreaterElements(int[] nums) {
-            Stack<Integer> stack = new Stack<>();
+            LinkedList<Integer> stack = new LinkedList<>();
             int[] ans = new int[nums.length];
             int[] tempAns = new int[nums.length*2];
             int[] tempNums = new int[nums.length*2];
@@ -190,15 +190,15 @@ public class _503_NextGreaterElementII {
      * | 3 | [8,-1,8,2,3]
      * |_8_|
      *
-     * time 61ms, beat 24.74%
-     * space 45.3MB, beat 15.09%
+     * time 16ms, beat 90.88%
+     * space 40.3MB, beat 54.65%
      *
      */
     public static class Solution2 {
 
         public int[] nextGreaterElements(int[] nums) {
             int[] ans = new int[nums.length];
-            Stack<Integer> stack = new Stack<>();
+            LinkedList<Integer> stack = new LinkedList<>();
             for (int i = nums.length*2-1; i >=0; i--) {
                 int index = i % nums.length;
                 while (!stack.isEmpty() && stack.peek() <= nums[index]) {

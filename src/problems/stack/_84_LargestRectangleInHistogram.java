@@ -1,6 +1,6 @@
 package problems.stack;
 
-import java.util.Stack;
+import java.util.LinkedList;
 
 /**
  * 84. 柱状图中最大的矩形
@@ -62,8 +62,8 @@ public class _84_LargestRectangleInHistogram {
      *
      * 所以最大的是5=>5*(4-1-1)=10
      *
-     * time 22ms, beat 63.47%
-     * space 40.9MB, beat 74.89%
+     * time 18ms, beat 83.54%
+     * space 40.4MB, beat 86.66%
      */
     public static class Solution1 {
 
@@ -79,7 +79,7 @@ public class _84_LargestRectangleInHistogram {
 
         private int[] preSmallerElements(int[] heights) {
             int[] ans = new int[heights.length];
-            Stack<Integer> stack = new Stack<>();
+            LinkedList<Integer> stack = new LinkedList<>();
             //从后往前遍历
             for (int i = heights.length - 1; i >= 0; i--) {
                 ans[i] = -1;
@@ -93,7 +93,7 @@ public class _84_LargestRectangleInHistogram {
 
         private int[] nextSmallerElements(int[] heights) {
             int[] ans = new int[heights.length];
-            Stack<Integer> stack = new Stack<>();
+            LinkedList<Integer> stack = new LinkedList<>();
             //从前往后遍历
             for (int i = 0; i < heights.length; i++) {
                 ans[i] = heights.length;
@@ -112,15 +112,15 @@ public class _84_LargestRectangleInHistogram {
      * 思路1的优化
      * preSmallerElements和nextSmallerElements都从前往后遍历，只需要一次遍历
      *
-     * time 14ms, beat 86.20%
-     * space 40.8MB, beat 78.09%
+     * time 10ms, beat 90.50%
+     * space 39.6MB, beat 98.02%
      */
     public static class Solution2 {
 
         public int largestRectangleArea(int[] heights) {
             int[] preSmallerElements = new int[heights.length];
             int[] nextSmallerElements = new int[heights.length];
-            Stack<Integer> stack = new Stack<>();
+            LinkedList<Integer> stack = new LinkedList<>();
             for (int i = 0; i < heights.length; i++) {
                 nextSmallerElements[i] = heights.length;
                 while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {

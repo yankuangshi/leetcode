@@ -1,9 +1,10 @@
 package problems.stack;
 
+
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
-import java.util.Stack;
 
 /**
  * 496. 下一个更大元素 I
@@ -154,7 +155,7 @@ public class _496_NextGreaterElement {
     public static class Solution3 {
 
         public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-            Stack<Integer> stack = new Stack<>();
+            LinkedList<Integer> stack = new LinkedList<>();
             Map<Integer, Integer> mappings = new HashMap<>();
             for (int n : nums2) {
                 while (!stack.isEmpty() && stack.peek() < n) {
@@ -221,8 +222,8 @@ public class _496_NextGreaterElement {
      *
      * 因此对于数组[1,2,4,3]，对应的next greater element数组为 [2,4,-1,-1]
      *
-     * time 5ms, beat 66.13%
-     * space 37.4MB, beat 13.54%
+     * time 4ms, beat 85.82%
+     * space 37.3MB, beat 26.36%
      *
      */
     public static class Solution4 {
@@ -238,9 +239,9 @@ public class _496_NextGreaterElement {
 
         private Map<Integer, Integer> nextGreaterElementHelper(int[] nums) {
             Map<Integer, Integer> mappings = new HashMap<>();
-            Stack<Integer> stack = new Stack<>();
+            LinkedList<Integer> stack = new LinkedList<>();
             for (int i = nums.length - 1; i >= 0; i--) {
-                while (!stack.isEmpty() && stack.peek() < nums[i]) {
+                while (!stack.isEmpty() && stack.peek() <= nums[i]) {
                     //因为是构造单调递增栈，所以比nums[i]小的栈顶数字需要弹出，直到栈顶数字比nums[i]大或者栈为空
                     stack.pop();
                 }
