@@ -11,6 +11,7 @@
 |61|[旋转链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_61_RotateList.java)|中等|linked list, two pointers|
 |82|[删除排序链表中的重复元素 II](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_82_DeleteDuplicatesII.java)|中等|linked list|
 |83|[删除排序链表中的重复元素](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_83_DeleteDuplicates.java)|简单|linked list|
+|84|[柱状图中最大的矩形](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_84_LargestRectangleInHistogram.java)|困难|stack, array|
 |86|[分隔链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_86_PartitionList.java)|中等|linked list, two pointers|
 |92|[反转链表 II](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_92_ReverseLinkedListII.java)|中等|linked list|
 |94|[二叉树的中序遍历](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_94_BinaryTreeInorderTraversal.java)|中等|stack, tree, hash table|
