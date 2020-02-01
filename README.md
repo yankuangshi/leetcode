@@ -8,6 +8,7 @@
 |20|[有效的括号](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_20_ValidParentheses.java)|简单|stack, string|
 |21|[合并两个有序链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_21_MergeTwoLists.java)|简单|linked list|
 |24|[两两交换链表中的节点](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_24_SwapPairs.java)|中等|linked list|
+|42|[接雨水 I](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_42_TrappingRainWater.java)|困难|stack, array, two pointers|
 |61|[旋转链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_61_RotateList.java)|中等|linked list, two pointers|
 |82|[删除排序链表中的重复元素 II](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_82_DeleteDuplicatesII.java)|中等|linked list|
 |83|[删除排序链表中的重复元素](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_83_DeleteDuplicates.java)|简单|linked list|
