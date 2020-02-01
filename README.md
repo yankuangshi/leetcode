@@ -57,5 +57,6 @@
 |725|[分隔链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_725_SplitListToParts.java)|中等|linked list|
 |739|[每日温度](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_739_DailyTemperatures.java)|中等|stack, hash table|
 |876|[链表的中间结点](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_876_MiddleNode.java)|简单|linked list|
+|1019|[链表中的下一个更大节点](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_1019_NextGreaterNode.java)|中等|stack, linked list|
 |1171|[从链表中删去总和值为零的连续节点](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_1171_RemoveZeroSumSubLists.java)|中等|linked list|
 |1290|[二进制链表转整数](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_1290_ConvertBinary2Integer.java)|简单|bit manipulation, linked list|
