@@ -38,6 +38,7 @@
 |145|[二叉树的后序遍历](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_145_BinaryTreePostorderTraversal.java)|困难|stack, tree|
 |147|[对链表进行插入排序](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_147_InsertionSortList.java)|中等|sort, linked list|
 |148|[排序链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_148_SortList.java)|中等|sort, linked list|
+|150|[逆波兰表达式求值](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_150_EvalReversePolishNotation.java)|中等|stack|
 |155|[最小栈](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_155_MinStack.java)|简单|stack, design|
 |160|[相交链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_160_IntersectionOfTwoLinkedList.java)|简单|linked list|
 |203|[移除链表元素](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_203_RemoveElements.java)|简单|linked list|
