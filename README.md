@@ -57,6 +57,7 @@
 |707|[设计链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_707_DesignLinkedList.java)|中等|linked list, design|
 |725|[分隔链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_725_SplitListToParts.java)|中等|linked list|
 |739|[每日温度](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_739_DailyTemperatures.java)|中等|stack, hash table|
+|844|[比较含退格的字符串](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_844_BackspaceStrCompare.java)|简单|stack, two pointers|
 |876|[链表的中间结点](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_876_MiddleNode.java)|简单|linked list|
 |1019|[链表中的下一个更大节点](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_1019_NextGreaterNode.java)|中等|stack, linked list|
 |1171|[从链表中删去总和值为零的连续节点](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_1171_RemoveZeroSumSubLists.java)|中等|linked list|
