@@ -118,8 +118,8 @@ public class _1019_NextGreaterNode {
      * 单调栈的优化，把链表先转换成数组，那么解法就类似题496
      * 但是把链表转换成数组，需要先确定链表长度，由于题目中假设给定列表的长度在 [0, 10000] 范围内，因此初始化的数组长度我们可以设置为10000
      *
-     * time 20ms, beat 94.05%
-     * space 40.5MB, beat 45.04%
+     * 18 ms, 94.77%
+     * 40.4 MB, 46.32%
      */
     public static class Solution2 {
 
@@ -135,11 +135,12 @@ public class _1019_NextGreaterNode {
             }
             int[] res = new int[count];
             LinkedList<Integer> stack = new LinkedList<>();
-            for (int i = 0; i < count; i++) {
-                while (!stack.isEmpty() && nums[stack.peek()] < nums[i]) {
-                    res[stack.pop()] = nums[i];
+            for (int i = count-1; i >=0; i--) {
+                while (!stack.isEmpty() && stack.peek() <= nums[i]) {
+                    stack.pop();
                 }
-                stack.push(i);
+                res[i] = stack.isEmpty() ? 0 : stack.peek();
+                stack.push(nums[i]);
             }
             return res;
         }
