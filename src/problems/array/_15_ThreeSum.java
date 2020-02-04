@@ -104,7 +104,7 @@ public class _15_ThreeSum {
             if (nums == null || nums.length < 3) return res;
             Arrays.sort(nums);
             for (int i = 0; i < nums.length - 2; i++) {
-                //如果 nums[i]>0，因为nums[r]>=nums[l]>=nums[i]，相加不可能为0，跳过
+                //如果 nums[i]>0，因为nums[r]>=nums[l]>=nums[i]，相加不可能为0，跳出
                 if (nums[i] > 0) break;
                 //nums[i]==nums[i-1]避免重复，需跳过
                 if (i > 0 && nums[i] == nums[i - 1]) continue;
@@ -138,7 +138,7 @@ public class _15_ThreeSum {
             if (nums == null || nums.length < 3) return res;
             Arrays.sort(nums);
             for (int i = 0; i < nums.length - 2; i++) {
-                //如果 nums[i]>0，因为nums[r]>=nums[l]>=nums[i]，相加不可能为0，跳过
+                //如果 nums[i]>0，因为nums[r]>=nums[l]>=nums[i]，相加不可能为0，跳出
                 if (nums[i] > 0) break;
                 int max = nums[i] + nums[nums.length-1] + nums[nums.length-2];
                 if (max < 0) continue;
