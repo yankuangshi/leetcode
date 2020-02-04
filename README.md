@@ -6,6 +6,7 @@
 |1|[两数之和](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/_1_TwoSum.java)|简单|array, hash table|
 |2|[两数相加](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_2_AddTwoNum.java)|中等|linked list|
 |15|[三数之和](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/_15_ThreeSum.java)|中等|array, two pointers|
+|18|[四数之和](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/_18_FourSum.java)|中等|array, two pointers|
 |19|[删除链表的倒数第N个节点](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_19_RemoveNthFromEnd.java)|中等|linked list, two pointers|
 |20|[有效的括号](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_20_ValidParentheses.java)|简单|stack, string|
 |21|[合并两个有序链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_21_MergeTwoLists.java)|简单|linked list|

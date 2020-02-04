@@ -28,7 +28,7 @@ import java.util.*;
 public class _15_ThreeSum {
 
     /**
-     * 思路1
+     * 解法一
      * 参考TwoSum，a+b+c=0，拿出一个数比如a，-a作为target，然后求两数之和
      * 该解法不AC 例如 [0,0,0,0] 这种情况不通过
      */
@@ -53,7 +53,7 @@ public class _15_ThreeSum {
     }
 
     /**
-     * 思路2
+     * 解法二
      * 先对数组进行排序 Arrays.sort
      * 然后最外层遍历排序后的数组 nums
      * 记当前下标为i，i之后的数组中最左端下标为l=i+1，最右端下标为r=nums.length-1
@@ -94,8 +94,8 @@ public class _15_ThreeSum {
      *       ↑     ↑   ↑
      *       i     l   r     l和r所指元素和上一个相同，跳过，否则结果就会重复
      *
-     * 40 ms, 56.60%
-     * 48.5 MB, 18.84%
+     * 34 ms, 86.18%
+     * 48.2 MB, 29.31%
      */
     public static class Solution2 {
 
@@ -115,37 +115,63 @@ public class _15_ThreeSum {
                     if (sum == 0) {
                         res.add(Arrays.asList(nums[i], nums[l], nums[r]));
                         //总和等于0，左指针右移，右指针左移，但是要跳过相同值
-//                        while (l < r && nums[l] == nums[l+1]) l++;
-//                        l++;
-//                        while (l < r && nums[r] == nums[r-1]) r--;
-//                        r--;
-                        //以上写法可以用以下语法优化
-                        while (l < r && nums[l] == nums[++l]);
-                        while (l < r && nums[r] == nums[--r]);
+                        l++;
+                        while (l < r && nums[l] == nums[l-1]) l++;
+                        r--;
+                        while (l < r && nums[r] == nums[r+1]) r--;
                     }
-                    if (sum > 0) {
-                        //总和大于0，说明偏大了，r指针左移，但是需要跳过相同的值
-//                        while (l < r && nums[r] == nums[r-1]) r--;
-//                        r--;
-                        while (l < r && nums[r] == nums[--r]);
-                    }
-                    if (sum < 0) {
-                        //总和小于0，说明偏小了，l指针右移，但是需要跳过相同的值
-//                        while (l < r && nums[l] == nums[l+1]) l++;
-//                        l++;
-                        while (l < r && nums[l] == nums[++l]);
-                    }
+                    if (sum > 0) r--;
+                    if (sum < 0) l++;
                 }
             }
             return res;
         }
     }
 
+    /**
+     * 解法三（解法二的代码优化）
+     */
+    public static class Solution3 {
+
+        public List<List<Integer>> threeSum(int[] nums) {
+            List<List<Integer>> res = new ArrayList<>();
+            if (nums == null || nums.length < 3) return res;
+            Arrays.sort(nums);
+            for (int i = 0; i < nums.length - 2; i++) {
+                //如果 nums[i]>0，因为nums[r]>=nums[l]>=nums[i]，相加不可能为0，跳过
+                if (nums[i] > 0) break;
+                int max = nums[i] + nums[nums.length-1] + nums[nums.length-2];
+                if (max < 0) continue;
+                //nums[i]==nums[i-1]避免重复，需跳过
+                if (i > 0 && nums[i] == nums[i - 1]) continue;
+                //下标i之后的最左端指针l和最右端指针r
+                int l = i + 1, r = nums.length - 1;
+                while (l < r) {
+                    int sum = nums[i] + nums[l] + nums[r];
+                    if (sum == 0) {
+                        res.add(Arrays.asList(nums[i], nums[l], nums[r]));
+                        //总和等于0，左指针右移，右指针左移，但是要跳过相同值
+                        //以上写法可以用以下语法优化
+                        while (l < r && nums[l] == nums[++l]);
+                        while (l < r && nums[r] == nums[--r]);
+                    }
+                    if (sum > 0) --r;
+                    if (sum < 0) ++l;
+                }
+            }
+            return res;
+        }
+    }
+
+
     public static void main(String[] args) {
+//        int[] nums = {0,0,0};
+//        int[] nums = {0,0,0,0};
 //        int[] nums = {-2,-3,0,0,-2};
 //        int[] nums = {0, -4, -1, -4, -2, -3, 2};
-        int[] nums = {-4,-1,-1,0,1,2};
-//        System.out.println(new Solution1().threeSum(nums));
+//        int[] nums = {-4,-1,-1,0,1,2};
+        int[] nums = {-6,-5,-4,-3,-2,-1,0,1};
         System.out.println(new Solution2().threeSum(nums));
+        System.out.println(new Solution3().threeSum(nums));
     }
 }
