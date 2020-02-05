@@ -54,6 +54,7 @@
 |257|[二叉树的所有路径](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_257_BinaryTreePaths.java)|简单|tree, dfs|
 |328|[奇偶链表](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_328_OddEventList.java)|中等|linked list|
 |341|[扁平化嵌套列表迭代器](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_341_FlattenNestedListIterator.java)|中等|stack, design|
+|394|[字符串解码](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_394_DecodeString.java)|中等|stack, dfs|
 |437|[路径总和 III](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_437_PathSumIII.java)|简单|tree|
 |445|[两数相加 II](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_445_AddTwoNumII.java)|中等|linked list|
 |496|[下一个更大元素 I](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_496_NextGreaterElement.java)|中等| stack |
