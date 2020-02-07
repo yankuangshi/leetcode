@@ -175,6 +175,10 @@ public class _215_KthLargest {
 
     }
 
+    public static class Solution6 {
+        //TODO partition 解法
+    }
+
     public static void main(String[] args) {
         int[] nums = {3,2,3,1,2,4,5,5,5,6};
 //        int[] nums = {2,1};

@@ -16,6 +16,15 @@ public class ListNode {
         val = x;
     }
 
+    public ListNode(int[] nums) {
+        ListNode cursor = this;
+        cursor.val = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            cursor.next = new ListNode(nums[i]);
+            cursor = cursor.next;
+        }
+    }
+
     @Override
     public String toString() {
         ListNode cursor = this;
