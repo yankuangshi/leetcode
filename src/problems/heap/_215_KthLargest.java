@@ -2,6 +2,7 @@ package problems.heap;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
+import java.util.Random;
 
 /**
  * 215. 数组中第K个最大元素
@@ -175,17 +176,119 @@ public class _215_KthLargest {
 
     }
 
+    /**
+     * 解法六
+     * 利用"快速排序"中的"快速选择" partition（分区函数）的方法
+     * partition 函数会任意选择一个元素（首尾元素或中间任意元素）作为 pivot（分区点），将数组中小于 pivot 的点都放置到其左边，将大于pivot的点都放置在其右边
+     * 最终 partition函数返回 pivot 的下标 index
+     * 经过这一步骤后，对于数组 arr[low] ~ arr[high]
+     * 1、arr[low] ~ arr[index-1] 都是不大于 pivot 的元素
+     * 2、arr[index+1] ~ arr[high] 都是不小于 pivot 的元素
+     * 3、arr[index] 就是 pivot 元素
+     *
+     * 如果 pivot 点刚好是第K大元素，那么它的左边有 K-1 个不小于它的元素，它的下标应该是 len-K（数组尾左边是 len-1）
+     * 如果 partition 函数返回的下标 index=len-1，则 arr[index] 就是我们要求的第K大元素
+     * 如果 partition 函数返回的下标 index<len-1，那么说明第K大元素在 index 下标的右边，我们重新分区 partition(arr, index+1, high)
+     * 如果 partition 函数返回的下标 index>len-1，那么说明第K大元素在 index 下标的左边，我们重新分区 partition(arr, low, index-1)
+     *
+     * 分区函数一般时间复杂度是O(NlogN)，但是一旦碰到极端情况比如数组已经是升序的情况，那么分区的时间复杂度就会退化为O(N^2)
+     *
+     * 41 ms, 14.81%
+     * 38.1 MB, 26.92%
+     */
     public static class Solution6 {
-        //TODO partition 解法
+        public int findKthLargest(int[] nums, int k) {
+            int len = nums.length;
+            int targetIndex = len - k;
+            int low = 0, high = len - 1;
+            while (true) {
+                int index = partition(nums, low, high);
+                if (index == targetIndex) {
+                    return nums[index];
+                } else if (index < targetIndex) {
+                    low = index + 1;
+                } else {
+                    high = index - 1;
+                }
+            }
+        }
+
+        private int partition(int[] arr, int low, int high) {
+            int i = low;
+            int pivot = arr[high];
+            for (int j = low; j < high; j++) {
+                if (arr[j] < pivot) {
+                    swap(arr, i, j);
+                    i++;
+                }
+            }
+            swap(arr, i, high);
+            return i;
+        }
+
+        private void swap(int[] arr, int i, int j) {
+            int tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
+        }
+    }
+
+    /**
+     * 解法七
+     * 在解法六的基础上优化分区函数
+     * 2 ms, 96.88%
+     * 37.1 MB, 92.06%
+     */
+    public static class Solution7 {
+        public int findKthLargest(int[] nums, int k) {
+            int len = nums.length;
+            int targetIndex = len - k;
+            int low = 0, high = len - 1;
+            while (true) {
+                int index = partition(nums, low, high);
+                if (index == targetIndex) {
+                    return nums[index];
+                } else if (index < targetIndex) {
+                    low = index + 1;
+                } else {
+                    high = index - 1;
+                }
+            }
+        }
+
+        private int partition(int[] arr, int low, int high) {
+            if (high > low) {
+                int random = low + new Random().nextInt(high - low);
+                swap(arr, high, random);
+            }
+            int i = low;
+            int pivot = arr[high];
+            for (int j = low; j < high; j++) {
+                if (arr[j] < pivot) {
+                    swap(arr, i, j);
+                    i++;
+                }
+            }
+            swap(arr, i, high);
+            return i;
+        }
+
+        private void swap(int[] arr, int i, int j) {
+            int tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
+        }
     }
 
     public static void main(String[] args) {
-        int[] nums = {3,2,3,1,2,4,5,5,5,6};
-//        int[] nums = {2,1};
-        System.out.println(new Solution1().findKthLargest(nums, 5));
-        System.out.println(new Solution2().findKthLargest(nums, 5));
-        System.out.println(new Solution3().findKthLargest(nums, 5));
-        System.out.println(new Solution4().findKthLargest(nums, 5));
-        System.out.println(new Solution5().findKthLargest(nums, 5));
+//        int[] nums = {3,2,3,1,2,4,5,5,5,6};
+        int[] nums = {3,2,3,1,2,4,5,5,6,7,7,8,2,3,1,1,1,10,11,5,6,2,4,7,8,5,6};
+//        System.out.println(new Solution1().findKthLargest(nums, 5));
+//        System.out.println(new Solution2().findKthLargest(nums, 5));
+//        System.out.println(new Solution3().findKthLargest(nums, 5));
+//        System.out.println(new Solution4().findKthLargest(nums, 5));
+//        System.out.println(new Solution5().findKthLargest(nums, 5));
+        System.out.println(new Solution6().findKthLargest(nums, 20));
+//        System.out.println(new Solution7().findKthLargest(nums, 5));
     }
 }
