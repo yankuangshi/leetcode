@@ -66,9 +66,39 @@ public class _23_MergeKLists {
         }
     }
 
+    /**
+     * 4 ms, 71.87%
+     * 40.7 MB, 62.64%
+     */
     public static class Solution2 {
 
-        //TODO
+        public ListNode mergeKLists(ListNode[] lists) {
+            int len = 0;
+            if (lists == null || (len = lists.length) == 0) return null;
+            if (len == 1) return lists[0];
+            if (len == 2) return merge2Lists(lists[0], lists[1]);
+            return mergeInternally(lists, 0, len-1);
+        }
+
+        private ListNode mergeInternally(ListNode[] lists, int left, int right) {
+            if (left == right) return lists[left];
+            int mid = left + ((right - left) >> 1);
+            ListNode l1 = mergeInternally(lists, left, mid);
+            ListNode l2 = mergeInternally(lists, mid+1, right);
+            return merge2Lists(l1, l2);
+        }
+
+        public ListNode merge2Lists(ListNode l1, ListNode l2) {
+            if (l1 == null) return l2;
+            if (l2 == null) return l1;
+            if (l1.val < l2.val) {
+                l1.next = merge2Lists(l1.next, l2);
+                return l1;
+            } else {
+                l2.next = merge2Lists(l1, l2.next);
+                return l2;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -78,10 +108,13 @@ public class _23_MergeKLists {
         ListNode l1 = new ListNode(nums1);
         ListNode l2 = new ListNode(nums2);
         ListNode l3 = new ListNode(nums3);
-        ListNode[] lists = new ListNode[3];
+        ListNode l4 = null;
+        ListNode[] lists = new ListNode[4];
         lists[0] = l1;
         lists[1] = l2;
         lists[2] = l3;
-        System.out.println(new Solution1().mergeKLists(lists));
+        lists[3] = l4;
+//        System.out.println(new Solution1().mergeKLists(lists));
+        System.out.println(new Solution2().mergeKLists(lists));
     }
 }
