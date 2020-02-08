@@ -69,9 +69,3 @@
 |1019|[链表中的下一个更大节点](https://leetcode-cn.com/problems/next-greater-node-in-linked-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_1019_NextGreaterNode.java)|中等|stack, linked list|
 |1171|[从链表中删去总和值为零的连续节点](https://leetcode-cn.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_1171_RemoveZeroSumSubLists.java)|中等|linked list|
 |1290|[二进制链表转整数](https://leetcode-cn.com/problems/convert-binary-number-in-a-linked-list-to-integer)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_1290_ConvertBinary2Integer.java)|简单|bit manipulation, linked list|
-
-解题思路：
-
-[[LeetCode] 单调栈问题总结及496、503、739、1019、42、84](https://github.com/yankuangshi/leetcode/issues/1)
-[[LeetCode] N数之和问题总结及1、15、18](https://github.com/yankuangshi/leetcode/issues/2)
-[[LeetCode] TopK问题总结及215](https://github.com/yankuangshi/leetcode/issues/3)
