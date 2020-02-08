@@ -45,6 +45,7 @@
 |150|[逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_150_EvalReversePolishNotation.java)|中等|stack|
 |155|[最小栈](https://leetcode-cn.com/problems/min-stack)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_155_MinStack.java)|简单|stack, design|
 |160|[相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_160_IntersectionOfTwoLinkedList.java)|简单|linked list|
+|167|[两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/_167_TwoSumII.java)|简单|array, two pointers, binary search|
 |203|[移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_203_RemoveElements.java)|简单|linked list|
 |206|[反转链表](https://leetcode-cn.com/problems/reverse-linked-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_206_ReverseLinkedList.java)|简单|linked list|
 |215|[数组中第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/_215_KthLargest.java)|中等|heap, divide and conquer|
@@ -59,8 +60,9 @@
 |394|[字符串解码](https://leetcode-cn.com/problems/decode-string)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_394_DecodeString.java)|中等|stack, dfs|
 |437|[路径总和 III](https://leetcode-cn.com/problems/path-sum-iii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_437_PathSumIII.java)|简单|tree|
 |445|[两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_445_AddTwoNumII.java)|中等|linked list|
-|496|[下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_496_NextGreaterElement.java)|中等| stack |
-|503|[下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_503_NextGreaterElementII.java)|中等| stack |
+|496|[下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_496_NextGreaterElement.java)|中等|stack|
+|503|[下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_503_NextGreaterElementII.java)|中等|stack|
+|653|[两数之和 IV - 输入 BST](https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_653_TwoSumInBST.java)|简单|tree|
 |707|[设计链表](https://leetcode-cn.com/problems/design-linked-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_707_DesignLinkedList.java)|中等|linked list, design|
 |725|[分隔链表](https://leetcode-cn.com/problems/split-linked-list-in-parts)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_725_SplitListToParts.java)|中等|linked list|
 |739|[每日温度](https://leetcode-cn.com/problems/daily-temperatures)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_739_DailyTemperatures.java)|中等|stack, hash table|
