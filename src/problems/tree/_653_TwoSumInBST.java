@@ -99,19 +99,22 @@ public class _653_TwoSumInBST {
      * 解法三
      * 利用BST的特性，中序遍历BST，得到的是升序排列的一组数
      * 因此可以转化为 TwoSum II 中的Shrink Range思路，使用左右双指针往中间移动
-     * 6 ms, 38.59%
-     * 38.1 MB, 95.46%
+     *
+     * 执行用时：4 ms, 73.43%
+     * 内存消耗：43.4 MB, 29.33%
      */
     public static class Solution3 {
 
+        private List<Integer> list = new ArrayList<>();
+
         public boolean findTarget(TreeNode root, int k) {
-            List<Integer> list = new ArrayList<>();
-            inorder(root, list);
+            inorder(root);
             int l = 0, r = list.size() - 1;
             while (l < r) {
                 if (list.get(l) + list.get(r) == k) {
                     return true;
-                } else if (list.get(l) + list.get(r) < k) {
+                }
+                if (list.get(l) + list.get(r) < k) {
                     l++;
                 } else {
                     r--;
@@ -120,11 +123,53 @@ public class _653_TwoSumInBST {
             return false;
         }
 
-        private void inorder(TreeNode root, List<Integer> list) {
+        private void inorder(TreeNode root) {
             if (root == null) return;
-            inorder(root.left, list);
+            inorder(root.left);
             list.add(root.val);
-            inorder(root.right, list);
+            inorder(root.right);
+        }
+    }
+
+    /**
+     * 解法四
+     * 利用BST的特征
+     * 节点的左子树只包含小于当前节点的数。
+     * 节点的右子树只包含大于当前节点的数。
+     * 所有左子树和右子树自身必须也是二叉搜索树。
+     * 直接在BST上进行遍历，例如遍历到节点 node 时，在BST上深度遍历是否存在 k-node.val 的节点
+     *
+     * 执行用时：1 ms, 100.00%
+     * 内存消耗：42.3 MB, 35.98%
+     */
+    public static class Solution4 {
+
+        private TreeNode ROOT;
+
+        public boolean findTarget(TreeNode root, int k) {
+            if (root == null || (root.left == null && root.right == null)) return false;
+            ROOT = root;
+            return helper(root, k);
+        }
+
+        private boolean helper(TreeNode root, int k) {
+            if (root == null) return false;
+            return (k != root.val * 2 && contain(k - root.val))
+                    || helper(root.left, k)
+                    || helper(root.right, k);
+        }
+
+        private boolean contain(int val) {
+            TreeNode node = ROOT;
+            while (node != null) {
+                if (val == node.val) return true;
+                if (val < node.val) {
+                    node = node.left;
+                } else {
+                    node = node.right;
+                }
+            }
+            return false;
         }
     }
 
@@ -138,5 +183,6 @@ public class _653_TwoSumInBST {
         System.out.println(new Solution1().findTarget(root, 10));
         System.out.println(new Solution2().findTarget(root, 10));
         System.out.println(new Solution3().findTarget(root, 10));
+        System.out.println(new Solution4().findTarget(root, 10));
     }
 }
