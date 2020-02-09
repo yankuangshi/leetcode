@@ -502,8 +502,190 @@ private int partition(int[] arr, int low, int high) {
 * 自己实现的堆，只对数组K个元素构建堆，时间复杂度O(NlogK)；"原地"建堆，空间复杂度O(1)；
 * 快速选择，partition分区，时间复杂度O(N)；没有借助其他内存空间，空间复杂度O(1)；
 
+---
 
-参考资料：
+### [LeetCode #347. 前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/)
+
+题目描述：
+
+给定一个非空的整数数组，返回其中出现频率前 k 高的元素。
+
+示例 1:
+```
+输入: nums = [1,1,1,2,2,3], k = 2
+输出: [1,2]
+```
+示例 2:
+```
+输入: nums = [1], k = 1
+输出: [1]
+说明：
+```
+你可以假设给定的 k 总是合理的，且 1 ≤ k ≤ 数组中不相同的元素的个数。
+你的算法的时间复杂度必须优于 O(nlogn) , n 是数组的大小。
+
+### 思路
+
+这道题其实就是 TopK 问题的应用，统计频次最高的前 K 个元素。
+
+### 解法一（大顶堆）
+
+首先统计频次这一步骤不可少，因此需要遍历一次数组 nums，用 HashMap 保存数字与出现频次的映射关系。
+然后利用大顶堆（借助Java中的优先级队列），把每个 HashMap 中的 Entry 放入大顶堆中（通过比较 Entry 的 value 大小，Entry 的 value 值代表着数字出现的频次）
+最后循环 K 次从堆顶取出 Entry（一共取出 K 个 Entry），把每个 Entry 的 key（Entry 的 key 代表着数字本身）放入返回列表
+
+参考代码如下：
+
+```java
+/**
+ * 执行用时：22 ms, 62.9%
+ * 内存消耗：42.7 MB, 5.02%
+ */
+class Solution {
+
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        if (nums == null) return null;
+        Map<Integer, Integer> frequentMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            frequentMap.put(nums[i], frequentMap.getOrDefault(nums[i], 0) + 1);
+        }
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((e1, e2) -> (e2.getValue() - e1.getValue()));
+        for (Map.Entry<Integer, Integer> entry : frequentMap.entrySet()) {
+            pq.offer(entry);
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < k; i++) {
+            res.add(pq.poll().getKey());
+        }
+        return res;
+    }
+}
+```
+
+### 解法二（小顶堆）
+
+在解法一基础上优化：
+
+1、堆内部并不需要存放 Map 的整个 Entry 对象，而只需要存放数字（也就是 Entry 的 key）即可，通过比较 Entry 的 value 大小（频次大小）入堆。
+2、不需要对数组全部元素构建堆，只需要 HashMap 键值对中的前 K 个 key 构建大小 K 的小顶堆，之后的键值对中的 key 需要和堆顶 key 所对应的频次比较大小，如果比堆顶 key 的频次大，则移除堆顶 key，加入新的值。
+
+最后从小顶堆依次取出结果，只不过从小顶堆取出的结果是按频次升序排序的，因为题目并没有要求必须按频次从高到低降序输出，所以可以不进行 reverse 操作
+
+参考代码如下：
+
+```java
+/**
+ * 执行用时：22 ms, 62.9%
+ * 内存消耗：40.5 MB, 49.29%
+ */ 
+class Solution {
+
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        if (nums == null) return null;
+        Map<Integer, Integer> frequentMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            frequentMap.put(nums[i], frequentMap.getOrDefault(nums[i], 0) + 1);
+        }
+        PriorityQueue<Integer> pq = new PriorityQueue<>((n1, n2) -> (frequentMap.get(n1) - frequentMap.get(n2)));
+        for(Integer n : frequentMap.keySet()) {
+            if (pq.size() < k) {
+                pq.offer(n);
+            } else {
+                if (frequentMap.get(n) > frequentMap.get(pq.peek())) {
+                    pq.poll();
+                    pq.offer(n);
+                }
+            }
+        }
+        List<Integer> res = new ArrayList<>();
+        while (!pq.isEmpty()) {
+            res.add(pq.poll());
+        }
+        //小顶堆取出的TopK结果是按频率升序的，因为题目并没有做要求必须按出现频率逆序输出，所以不进行reverse操作
+        //Collections.reverse(res);
+        return res;
+    }
+}
+```
+
+以上两种解法时间复杂度都是 O(NlogK)，那有没有效率更高的解法？
+
+### 解法三
+
+遍历数组统计频次存入 HashMap 后，创建一个大小为 nums.length + 1 的新数组用于存储数字，index 为该数字出现的频次
+
+例如 nums = [1,1,1,2,2,3,3,3,3]
+
+统计完得到数字与频次的键值对 hashmap = [(1,3),(2,2),(3,4)]
+
+创建新数组 C 长度为 nums.length+1
+
+```
+         ---------------------
+数组C[10] | | | | | | | | | | |
+         ---------------------
+下标       0 1 2 3 4 5 6 7 8 9
+```
+
+然后以频次作为下标，把数字和频次键值对依次填入新的数组 C
+
+```
+         ---------------------
+数组C[10] |x|x|2|1|3|x|x|x|x|x|
+         ---------------------
+下标       0 1 2 3 4 5 6 7 8 9
+```
+
+最后，出现频次TopK的数字，只需要对数组 C 从后往前遍历（排除没值的index）K 次就可以了。
+
+这里需要注意2点：
+
+1、为什么新数组 C 的长度是 nums.length + 1 ？
+
+假设最坏的情况就是 nums 数组中所有数字的出现频次都是1次，那么新数组 C 中至少要能够存放 nums.length 个数字，再加上 index=0 的位置意味着频次出现0的数字，这个数字是不存在的，因此 index=0 的位置将被空出来，所以新数组 C 的长度应该是 nums.length+1，多出的 1 就是给C[0]的。
+
+2、如果频次相同怎么存放？
+
+对于频次相同的数字，只能把它们放在数组 C 的同一个 bucket 中（感觉是不是很像 HashMap 发生哈希冲突时内部数组？），同一个 bucket 要能够存放2个不同数字，那么可以学习 HashMap 解决哈希冲突的方法，数组 C 的每个 bucket 存放 List 链表 List[] C = new List[len+1]
+
+这种解法第一次统计频次遍历数组时间复杂度O(N)，之后也是使用数组来存放频次，因此总体时间复杂度为O(N)。
+
+参考代码如下：
+
+```java
+/**
+ * 执行用时：16 ms, 96.05%
+ * 内存消耗：40.8 MB, 33.76%
+ */
+class Solution {
+
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        if (nums == null) return null;
+        Map<Integer, Integer> frequentMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            frequentMap.put(nums[i], frequentMap.getOrDefault(nums[i], 0) + 1);
+        }
+        //以下行要注意，数组长度应该是 nums.length+1，因为index=0（频次为0）的数字是不存在的，index=0位置永远为空，因此该多算一位
+        List[] buckets = new List[nums.length+1];
+        for (Map.Entry<Integer, Integer> entry : frequentMap.entrySet()) {
+            int i = entry.getValue(); //freq
+            if (buckets[i] == null) {
+                buckets[i] = new ArrayList<>();
+            }
+            buckets[i].add(entry.getKey());
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int i = buckets.length - 1; i >= 0 && res.size() < k; i--) {
+            if (buckets[i] != null) {
+                res.addAll(buckets[i]);
+            }
+        }
+        return res;
+    }
+}
+```
+
+### 参考资料：
 
 [排序（下）：如何用快排思想在O(n)内查找第K大元素？](https://time.geekbang.org/column/article/41913) by 极客时间
 [堆和堆排序：为什么说堆排序没有快速排序块？](https://time.geekbang.org/column/article/69913) by 极客时间
