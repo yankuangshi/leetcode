@@ -1,7 +1,9 @@
 package problems.string;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * 3. 无重复字符的最长子串
@@ -34,61 +36,79 @@ import java.util.Map;
 public class _3_LongestSubstring {
 
     /**
-     * 执行用时：14 ms, 43.32%
-     * 内存消耗：47.6 MB, 5.01%
+     *
+     * 执行用时：21 ms, 26.74%
+     * 内存消耗：46.8 MB, 5.02%
      */
     public static class Solution1 {
 
         public int lengthOfLongestSubstring(String s) {
             if (s.isEmpty()) return 0;
             if (s.length() == 1) return 1;
-            int longest = 0, i = 0, j;
-            Map<Character, Integer> hashmap = new HashMap<>();
-            for (j = 0; j < s.length(); j++) {
-                if (!hashmap.containsKey(s.charAt(j))) {
-                    hashmap.put(s.charAt(j), j);
-                } else {
-                    longest = Math.max(longest, (j-i));
-                    int oldPos = hashmap.get(s.charAt(j));
-                    while (i < oldPos) {
-                        hashmap.remove(s.charAt(i));
-                        i++;
-                    }
-                    i = oldPos + 1;
-                    hashmap.put(s.charAt(j), j);
+            int ans = 0, left = 0, right = 0;
+            int len = s.length();
+            Set<Character> set = new HashSet<>();
+            while (left < len && right < len) {
+                Character c = s.charAt(right);
+                while (set.contains(c)) {
+                    set.remove(s.charAt(left++));
                 }
+                set.add(c);
+                ans = Math.max(ans, right - left + 1);
+                right++;
             }
-            longest = Math.max(longest, (j-i));
-            return longest;
+            return ans;
         }
     }
 
     /**
-     * 执行用时：12 ms, 56.18%
-     * 内存消耗：46 MB, 5.01%
+     * 执行用时：13 ms, 49.00%
+     * 内存消耗：46.7 MB, 5.02%
      */
     public static class Solution2 {
 
         public int lengthOfLongestSubstring(String s) {
             if (s.isEmpty()) return 0;
             if (s.length() == 1) return 1;
-            int longest = 0, i = 0, j;
-            Map<Character, Integer> hashmap = new HashMap<>();
-            for (j = 0; j < s.length(); j++) {
-                char c = s.charAt(j);
-                if (hashmap.containsKey(c)) {
-                    longest = Math.max(longest, (j-i));
-                    i = Math.max(hashmap.get(c) + 1, i);
+            int ans = 0, left = 0, right = 0;
+            int len = s.length();
+            Map<Character, Integer> map = new HashMap<>();
+            while (left < len && right < len) {
+                Character c = s.charAt(right);
+                if (map.containsKey(c)) {
+                    left = Math.max(left, map.get(c) + 1);
                 }
-                hashmap.put(s.charAt(j), j);
+                map.put(c, right);
+                ans = Math.max(ans, right - left + 1);
+                right++;
             }
-            longest = Math.max(longest, (j-i));
-            return longest;
+            return ans;
+        }
+    }
+
+    /**
+     * 执行用时：4m ms, 90.84%
+     * 内存消耗：44.8 MB, 5.02%
+     */
+    public static class Solution3 {
+
+        public int lengthOfLongestSubstring(String s) {
+            if (s.isEmpty()) return 0;
+            if (s.length() == 1) return 1;
+            int ans = 0, left = 0, right = 0, len = s.length();
+            int[] index = new int[128];
+            while (right < len) {
+                left = Math.max(left, index[s.charAt(right)]);
+                ans = Math.max(ans, right - left + 1);
+                index[s.charAt(right)] = right + 1;
+                right++;
+            }
+            return ans;
         }
     }
 
     public static void main(String[] args) {
-//        String s = "abcabcbb";
+//        String s = "abccba";
 //        String s = "bbbbbbbb";
 //        String s = "pwwkew";
 //        String s = "a";
@@ -96,5 +116,6 @@ public class _3_LongestSubstring {
         String s = "abc";
         System.out.println(new Solution1().lengthOfLongestSubstring(s));
         System.out.println(new Solution2().lengthOfLongestSubstring(s));
+        System.out.println(new Solution3().lengthOfLongestSubstring(s));
     }
 }
