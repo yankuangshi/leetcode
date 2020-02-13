@@ -16,6 +16,7 @@
 |24|[两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_24_SwapPairs.java)|中等|linked list|
 |42|[接雨水 I](https://leetcode-cn.com/problems/trapping-rain-water)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_42_TrappingRainWater.java)|困难|stack, array, two pointers|
 |61|[旋转链表](https://leetcode-cn.com/problems/rotate-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_61_RotateList.java)|中等|linked list, two pointers|
+|76|[最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/_76_MinWindowSubstring.java)|困难|hash table, two pointers, string, sliding window|
 |82|[删除排序链表中的重复元素 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_82_DeleteDuplicatesII.java)|中等|linked list|
 |83|[删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_83_DeleteDuplicates.java)|简单|linked list|
 |84|[柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_84_LargestRectangleInHistogram.java)|困难|stack, array|
