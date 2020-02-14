@@ -26,6 +26,41 @@ import java.util.Map;
 public class _76_MinWindowSubstring {
 
     /**
+     * 解法一
+     * 滑动窗口的经典题目
+     * 根据作者labuladong 在 https://leetcode-cn.com/problems/minimum-window-substring/solution/hua-dong-chuang-kou-suan-fa-tong-yong-si-xiang-by-/ 介绍的方法改写成java代码
+     * 滑动窗口算法的思路是这样：
+     * 1、我们在字符串 S 中使用双指针中的左右指针技巧，初始化 left = right = 0，把索引闭区间 [left, right] 称为一个「窗口」。
+     * 2、我们先不断地增加 right 指针扩大窗口 [left, right]，直到窗口中的字符串符合要求（包含了 T 中的所有字符）。
+     * 3、此时，我们停止增加 right，转而不断增加 left 指针缩小窗口 [left, right]，直到窗口中的字符串不再符合要求（不包含 T 中的所有字符了）。同时，每次增加 left，我们都要更新一轮结果。
+     * 4、重复第 2 和第 3 步，直到 right 到达字符串 S 的尽头。
+     *
+     * 例如 S = "ADOBECODEBANC" T="ABC"，我们的利用needs和window来作为计数器，needs={A:1, B:1, C:1}
+     *
+     *  A D O B E C O D E B A N C
+     * lr                               window={A:1} 此时不符合 needs，扩大窗口
+     *
+     *  A D O B E C O D E B A N C
+     *  l         r                     window={A:1, B:1, C:1} 此时 window 窗口符合 needs，开始缩小窗口
+     *
+     *  A D O B E C O D E B A N C
+     *  l         r                     把 A 从 window 中减去，window={A:0, B:1, C:1} 此时 window 不符合 needs，又重新开始扩大窗口
+     *
+     *  A D O B E C O D E B A N C
+     *    l                 r           window={A:1, B:2, C:1} 此时 window 重新符合 needs，开始缩小窗口
+     *
+     *  A D O B E C O D E B A N C
+     *        l             r           把 B 从 window 中减去，window={A:1, B:1, C:1} 此时 window 还是符合 needs，继续缩小窗口
+     *
+     *  A D O B E C O D E B A N C
+     *            l         r           把 C 从 window 中减去，window={A:1, B:1, C:0} 此时 window 不符合 needs，重新开始扩大窗口
+     *
+     *  A D O B E C O D E B A N C
+     *              l           r       window={A:1, B:1, C:1} 此时 window 符合 needs，继续缩小窗口
+     *
+     *  A D O B E C O D E B A N C
+     *                    l     r       把 B 从 window 中减去，window={A:1, B:0, C:1} 此时 window 不符合 needs，并且此时 l 到 r 的字符串最短 BANC
+     *
      * 执行用时：31 ms, 47.55%
      * 内存消耗：47.6 MB, 5.11%
      */
@@ -71,6 +106,9 @@ public class _76_MinWindowSubstring {
     }
 
     /**
+     * 解法二
+     * 在解法一基础上优化，用数组 int[128] 代替 HashMap，优化方法同《3.无重复字符的最长子串》中的解法三
+     *
      * 执行用时：7 ms, 76.60%
      * 内存消耗：45.5 MB, 5.02%
      */
