@@ -63,6 +63,7 @@
 |347|[前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/_347_TopKFrequent.java)|中等|heap, hash table|
 |394|[字符串解码](https://leetcode-cn.com/problems/decode-string)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_394_DecodeString.java)|中等|stack, dfs|
 |437|[路径总和 III](https://leetcode-cn.com/problems/path-sum-iii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_437_PathSumIII.java)|简单|tree|
+|438|[找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/_438_FindAnagrams.java)|中等|hash table, sliding window|
 |445|[两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_445_AddTwoNumII.java)|中等|linked list|
 |496|[下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_496_NextGreaterElement.java)|中等|stack|
 |503|[下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_503_NextGreaterElementII.java)|中等|stack|

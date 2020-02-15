@@ -121,12 +121,12 @@ public class _76_MinWindowSubstring {
             int l = 0, r = 0, match = 0;
             String res = "";
             for (char c : t.toCharArray()) {
-                needIndex[c] = needIndex[c] + 1;
+                needIndex[c]++;
             }
             while (r < len) {
                 char ch = s.charAt(r);
                 if (needIndex[ch] > 0) {
-                    windowIndex[ch] = windowIndex[ch] + 1;
+                    windowIndex[ch]++;
                     if (windowIndex[ch] <= needIndex[ch]) {
                         match++;
                     }
@@ -138,7 +138,7 @@ public class _76_MinWindowSubstring {
                     }
                     ch = s.charAt(l);
                     if (needIndex[ch] > 0) {
-                        windowIndex[ch] = windowIndex[ch] - 1;
+                        windowIndex[ch]--;
                         if (windowIndex[ch] < needIndex[ch]) {
                             match--;
                         }
