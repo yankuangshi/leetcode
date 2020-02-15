@@ -14,6 +14,7 @@
 |21|[合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_21_MergeTwoLists.java)|简单|linked list|
 |23|[合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/_23_MergeKLists.java)|困难|heap, linked lis, divide and conquer|
 |24|[两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_24_SwapPairs.java)|中等|linked list|
+|30|[串联所有单词的子串](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/_30_SubstringWithConcatenation.java)|困难|hash table, two pointers, string, sliding window|
 |42|[接雨水 I](https://leetcode-cn.com/problems/trapping-rain-water)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_42_TrappingRainWater.java)|困难|stack, array, two pointers|
 |61|[旋转链表](https://leetcode-cn.com/problems/rotate-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_61_RotateList.java)|中等|linked list, two pointers|
 |76|[最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/_76_MinWindowSubstring.java)|困难|hash table, two pointers, string, sliding window|

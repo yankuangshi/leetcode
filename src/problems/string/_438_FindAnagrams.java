@@ -52,7 +52,7 @@ public class _438_FindAnagrams {
      * 执行用时：14 ms, 60.66%
      * 内存消耗：46.1 MB, 5.02%
      */
-    public static class Solution {
+    public static class Solution1 {
 
         public List<Integer> findAnagrams(String s, String p) {
             List<Integer> res = new ArrayList<>();
@@ -72,6 +72,7 @@ public class _438_FindAnagrams {
                     }
                 }
                 while (match == pLength) {
+                    //解题思路同题76.最小覆盖子串，只需要把结果处理这边更改一下即可
                     if (r - l + 1 == pLength) {
                         res.add(l);
                     }
@@ -95,6 +96,6 @@ public class _438_FindAnagrams {
 //        String P = "abc";
         String S = "abab";
         String P = "ab";
-        System.out.println(new Solution().findAnagrams(S, P));
+        System.out.println(new Solution1().findAnagrams(S, P));
     }
 }
