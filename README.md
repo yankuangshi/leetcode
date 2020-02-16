@@ -68,6 +68,7 @@
 |445|[两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_445_AddTwoNumII.java)|中等|linked list|
 |496|[下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_496_NextGreaterElement.java)|中等|stack|
 |503|[下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_503_NextGreaterElementII.java)|中等|stack|
+|567|[字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/_567_PermutationInString.java)|中等|two pointers, sliding window|
 |653|[两数之和 IV - 输入 BST](https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_653_TwoSumInBST.java)|简单|tree|
 |707|[设计链表](https://leetcode-cn.com/problems/design-linked-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_707_DesignLinkedList.java)|中等|linked list, design|
 |725|[分隔链表](https://leetcode-cn.com/problems/split-linked-list-in-parts)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_725_SplitListToParts.java)|中等|linked list|
