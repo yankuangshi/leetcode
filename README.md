@@ -59,11 +59,13 @@
 |232|[用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_232_ImplementQueueUsingStack.java)|简单|stack, design|
 |234|[回文链表](https://leetcode-cn.com/problems/palindrome-linked-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_234_PalindromeLinkedList.java)|简单|linked list, two pointers|
 |237|[删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_237_DeleteNodeInLinkedList.java)|简单|linked list|
+|239|[滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/_239_SlidingWindowMax.java)|困难|heap, sliding window|
 |257|[二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_257_BinaryTreePaths.java)|简单|tree, dfs|
 |328|[奇偶链表](https://leetcode-cn.com/problems/odd-even-linked-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_328_OddEventList.java)|中等|linked list|
 |341|[扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_341_FlattenNestedListIterator.java)|中等|stack, design|
 |347|[前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/_347_TopKFrequent.java)|中等|heap, hash table|
 |394|[字符串解码](https://leetcode-cn.com/problems/decode-string)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/_394_DecodeString.java)|中等|stack, dfs|
+|424|[替换后的最长重复字符](https://leetcode-cn.com/problems/longest-repeating-character-replacement/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/_424_CharacterReplacement.java)|中等|two pointers, sliding window|
 |437|[路径总和 III](https://leetcode-cn.com/problems/path-sum-iii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/_437_PathSumIII.java)|简单|tree|
 |438|[找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/_438_FindAnagrams.java)|中等|hash table, sliding window|
 |445|[两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/_445_AddTwoNumII.java)|中等|linked list|
