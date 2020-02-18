@@ -98,11 +98,53 @@ public class LeetCode_480_SlidingWindowMedian {
         }
     }
 
+    /**
+     * 45 ms, 50.72%
+     * 52.5 MB, 5.45%
+     */
+    public static class Solution2 {
+
+        public double[] medianSlidingWindow(int[] nums, int k) {
+            PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+            PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+            double[] res = new double[nums.length-k+1];
+            for (int i = 0; i < nums.length; i++) {
+                //i从0~k-1，第一个窗口不需要删除
+                if (i >= k) {
+                    //i为窗口最左边界，则窗口的最右边界为i-k+1，最右边界的左边元素 nums[i-k] 即为移动窗口后需要删除的元素
+                    if (nums[i-k] <= maxHeap.peek()) {
+                        maxHeap.remove(nums[i-k]);
+                    } else {
+                        minHeap.remove(nums[i-k]);
+                    }
+                }
+                add(maxHeap, minHeap, nums[i]);
+                if (i >= k-1) {
+                    if (k % 2 == 0) {
+                        res[i-k+1] = (double)maxHeap.peek() * 0.5 + (double)minHeap.peek() * 0.5;
+                    } else {
+                        res[i-k+1] = (double)maxHeap.peek();
+                    }
+                }
+            }
+            return res;
+        }
+
+        private void add(PriorityQueue<Integer> maxHeap, PriorityQueue<Integer> minHeap, int num) {
+            maxHeap.add(num);
+            minHeap.add(maxHeap.poll());
+            while (minHeap.size() > maxHeap.size()) {
+                maxHeap.add(minHeap.poll());
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] nums = {1,3,-1,-3,5,3,6,7};
-        int k = 3;
+        int k = 4;
 //        int[] nums = {2147483647,2147483647};
 //        int k = 2;
         System.out.println(Arrays.toString(new Solution1().medianSlidingWindow(nums, k)));
+        System.out.println(Arrays.toString(new Solution2().medianSlidingWindow(nums, k)));
     }
 }
