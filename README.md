@@ -17,6 +17,7 @@
 |30|[串联所有单词的子串](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/LeetCode_30_SubstringWithConcatenation.java)|困难|hash table, two pointers, string, sliding window|
 |42|[接雨水 I](https://leetcode-cn.com/problems/trapping-rain-water)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/LeetCode_42_TrappingRainWater.java)|困难|stack, array, two pointers|
 |61|[旋转链表](https://leetcode-cn.com/problems/rotate-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_61_RotateList.java)|中等|linked list, two pointers|
+|74|[搜索二维矩阵 I](https://leetcode-cn.com/problems/search-a-2d-matrix)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/LeetCode_74_SearchA2DMatrix.java)|中等|array, binary search|
 |76|[最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/LeetCode_76_MinWindowSubstring.java)|困难|hash table, two pointers, string, sliding window|
 |82|[删除排序链表中的重复元素 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_82_DeleteDuplicatesII.java)|中等|linked list|
 |83|[删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_83_DeleteDuplicates.java)|简单|linked list|
@@ -60,6 +61,7 @@
 |234|[回文链表](https://leetcode-cn.com/problems/palindrome-linked-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_234_PalindromeLinkedList.java)|简单|linked list, two pointers|
 |237|[删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_237_DeleteNodeInLinkedList.java)|简单|linked list|
 |239|[滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/LeetCode_239_SlidingWindowMax.java)|困难|heap, sliding window|
+|240|[搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/LeetCode_240_SearchA2DMatrixII.java)|中等|binary search, divide and conquer|
 |257|[二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/LeetCode_257_BinaryTreePaths.java)|简单|tree, dfs|
 |295|[数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/LeetCode_295_FindMedianFromDataStream.java)|困难|heap, design|
 |328|[奇偶链表](https://leetcode-cn.com/problems/odd-even-linked-list)|[java](https://github.com/yankuangshi/leet2code/blob/master/src/problems/linkedlist/LeetCode_328_OddEventList.java)|中等|linked list|

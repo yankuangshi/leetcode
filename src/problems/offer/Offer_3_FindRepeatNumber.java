@@ -1,4 +1,4 @@
-package problems.interview;
+package problems.offer;
 
 import java.util.HashSet;
 
