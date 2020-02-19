@@ -20,12 +20,12 @@ package problems.interview;
  *   [18, 21, 23, 26, 30]
  * ]
  * 给定 target = 5，返回 true。
- * 给定 target = 20，返回 false。 
+ * 给定 target = 20，返回 false。
  *
  * @author kyan
  * @date 2020/2/19
  */
-public class _4_FindNumberIn2DArray {
+public class Offer_4_FindNumberIn2DArray {
 
     /**
      * 解法一

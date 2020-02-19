@@ -18,7 +18,7 @@ import java.util.HashSet;
  * @author kyan
  * @date 2020/2/19
  */
-public class _3_FindRepeatNumber {
+public class Offer_3_FindRepeatNumber {
 
     /**
      * 解法一
