@@ -104,9 +104,10 @@ public class LeetCode_480_SlidingWindowMedian {
      */
     public static class Solution2 {
 
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
         public double[] medianSlidingWindow(int[] nums, int k) {
-            PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
-            PriorityQueue<Integer> minHeap = new PriorityQueue<>();
             double[] res = new double[nums.length-k+1];
             for (int i = 0; i < nums.length; i++) {
                 //i从0~k-1，第一个窗口不需要删除
@@ -118,7 +119,7 @@ public class LeetCode_480_SlidingWindowMedian {
                         minHeap.remove(nums[i-k]);
                     }
                 }
-                add(maxHeap, minHeap, nums[i]);
+                add(nums[i]);
                 if (i >= k-1) {
                     if (k % 2 == 0) {
                         res[i-k+1] = (double)maxHeap.peek() * 0.5 + (double)minHeap.peek() * 0.5;
@@ -130,7 +131,7 @@ public class LeetCode_480_SlidingWindowMedian {
             return res;
         }
 
-        private void add(PriorityQueue<Integer> maxHeap, PriorityQueue<Integer> minHeap, int num) {
+        private void add(int num) {
             maxHeap.add(num);
             minHeap.add(maxHeap.poll());
             while (minHeap.size() > maxHeap.size()) {
@@ -139,12 +140,73 @@ public class LeetCode_480_SlidingWindowMedian {
         }
     }
 
+    /**
+     * 52 ms
+     * 43.48%
+     * 52.8 MB
+     * 5.51%
+     */
+    public static class Solution3 {
+
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        Integer maxHeapNum = 0, minHeapNum = 0;
+
+        public double[] medianSlidingWindow(int[] nums, int k) {
+            double[] res = new double[nums.length-k+1];
+            Map<Integer, Integer> numsOutMap = new HashMap<>();
+            for (int i = 0; i < nums.length; i++) {
+                //i从0~k-1，第一个窗口不需要删除
+                if (i >= k) {
+                    //i为窗口最左边界，则窗口的最右边界为i-k+1，最右边界的左边元素 nums[i-k] 即为移动窗口后需要删除的元素
+                    if (nums[i-k] <= maxHeap.peek()) {
+//                        maxHeap.remove(nums[i-k]);
+                        maxHeapNum--;
+                    } else {
+//                        minHeap.remove(nums[i-k]);
+                        minHeapNum--;
+                    }
+                    numsOutMap.put(nums[i-k], numsOutMap.getOrDefault(nums[i-k], 0) + 1);
+                }
+                add(nums[i]);
+                while (!maxHeap.isEmpty() && numsOutMap.getOrDefault(maxHeap.peek(), 0) > 0) {
+                    Integer tmp = maxHeap.poll();
+                    numsOutMap.put(tmp, numsOutMap.get(tmp) - 1);
+                }
+                while (!minHeap.isEmpty() && numsOutMap.getOrDefault(minHeap.peek(), 0) > 0) {
+                    Integer tmp = minHeap.poll();
+                    numsOutMap.put(tmp, numsOutMap.get(tmp) - 1);
+                }
+                if (i >= k-1) {
+                    if (k % 2 == 0) {
+                        res[i-k+1] = (double)maxHeap.peek() * 0.5 + (double)minHeap.peek() * 0.5;
+                    } else {
+                        res[i-k+1] = (double)maxHeap.peek();
+                    }
+                }
+            }
+            return res;
+        }
+
+        private void add(int num) {
+            maxHeap.add(num);
+            minHeap.add(maxHeap.poll());
+            minHeapNum++;
+            while (minHeapNum > maxHeapNum) {
+                maxHeap.add(minHeap.poll());
+                minHeapNum--;
+                maxHeapNum++;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] nums = {1,3,-1,-3,5,3,6,7};
-        int k = 4;
+        int k = 2;
 //        int[] nums = {2147483647,2147483647};
 //        int k = 2;
         System.out.println(Arrays.toString(new Solution1().medianSlidingWindow(nums, k)));
         System.out.println(Arrays.toString(new Solution2().medianSlidingWindow(nums, k)));
+        System.out.println(Arrays.toString(new Solution3().medianSlidingWindow(nums, k)));
     }
 }
