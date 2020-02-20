@@ -64,9 +64,9 @@ public class LeetCode_74_SearchA2DMatrix {
             if (lowRow > highRow) return false;
             int midRow = lowRow + ((highRow-lowRow)>>1);
             if (target < matrix[midRow][0]) {
-                return bsearch(matrix, target, lowRow, --highRow);
+                return bsearch(matrix, target, lowRow, midRow-1);
             } else if (target > matrix[midRow][matrix[0].length-1]){
-                return bsearch(matrix, target, ++lowRow, highRow);
+                return bsearch(matrix, target, midRow+1, highRow);
             } else {
                 return bsearchInRow(matrix[midRow], target, 0, matrix[0].length - 1);
             }
@@ -77,9 +77,9 @@ public class LeetCode_74_SearchA2DMatrix {
             int mid = lowIndex + ((highIndex-lowIndex)>>1);
             if (nums[mid] == target) return true;
             if (nums[mid] > target) {
-                return bsearchInRow(nums, target, lowIndex, --highIndex);
+                return bsearchInRow(nums, target, lowIndex, mid-1);
             } else {
-                return bsearchInRow(nums, target, ++lowIndex, highIndex);
+                return bsearchInRow(nums, target, mid+1, highIndex);
             }
         }
     }

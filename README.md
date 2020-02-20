@@ -71,7 +71,9 @@
 |424|[替换后的最长重复字符](https://leetcode-cn.com/problems/longest-repeating-character-replacement/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/LeetCode_424_CharacterReplacement.java)|中等|two pointers, sliding window|
 |437|[路径总和 III](https://leetcode-cn.com/problems/path-sum-iii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/LeetCode_437_PathSumIII.java)|简单|tree|
 |438|[找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/LeetCode_438_FindAnagrams.java)|中等|hash table, sliding window|
+|442|[数组中重复的数据](https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/LeetCode_442_FindDuplicates.java)|中等|array|
 |445|[两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_445_AddTwoNumII.java)|中等|linked list|
+|448|[找到所有数组中消失的数字](https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/LeetCode_448_FindDisappearedNumbers.java)|简单|array|
 |480|[滑动窗口中位数](https://leetcode-cn.com/problems/sliding-window-median/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/LeetCode_480_SlidingWindowMedian.java)|困难|heap, sliding window|
 |496|[下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/LeetCode_496_NextGreaterElement.java)|中等|stack|
 |503|[下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/LeetCode_503_NextGreaterElementII.java)|中等|stack|
