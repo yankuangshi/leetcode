@@ -55,7 +55,7 @@ public class LeetCode_206_ReverseLinkedList {
      */
     public static class Solution2 {
         public ListNode reverseList(ListNode head) {
-            if (head == null || head.next == null) return null;
+            if (head == null || head.next == null) return head;
     //        ListNode prev = head;
     //        ListNode curr = prev.next;
     //        head.next = null;

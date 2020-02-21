@@ -22,7 +22,8 @@ package problems.offer;
  * 给定 target = 5，返回 true。
  * 给定 target = 20，返回 false。
  *
- * 相似题：LeetCode 240. 搜索二维矩阵II（https://leetcode-cn.com/problems/search-a-2d-matrix-ii/）
+ * 相似题：
+ * LeetCode 240. 搜索二维矩阵II（https://leetcode-cn.com/problems/search-a-2d-matrix-ii/）
  *
  * @author kyan
  * @date 2020/2/19
