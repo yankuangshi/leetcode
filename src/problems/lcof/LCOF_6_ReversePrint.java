@@ -1,4 +1,4 @@
-package problems.offer;
+package problems.lcof;
 
 import problems.common.util.ListNode;
 
@@ -23,7 +23,7 @@ import java.util.LinkedList;
  * @author kyan
  * @date 2020/2/21
  */
-public class Offer_6_ReversePrint {
+public class LCOF_6_ReversePrint {
 
     /**
      * 解法一

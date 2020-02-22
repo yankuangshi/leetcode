@@ -1,6 +1,4 @@
-package problems.offer;
-
-import java.util.Arrays;
+package problems.lcof;
 
 /**
  * 面试题05. 替换空格
@@ -15,7 +13,7 @@ import java.util.Arrays;
  * @author kyan
  * @date 2020/2/21
  */
-public class Offer_5_ReplaceSpace {
+public class LCOF_5_ReplaceSpace {
 
     /**
      * double 100%

@@ -1,4 +1,4 @@
-package problems.offer;
+package problems.lcof;
 
 /**
  * 面试题04.二维数组中查找
@@ -28,7 +28,7 @@ package problems.offer;
  * @author kyan
  * @date 2020/2/19
  */
-public class Offer_4_FindNumberIn2DArray {
+public class LCOF_4_FindNumberIn2DArray {
 
     /**
      * 解法一

@@ -1,4 +1,4 @@
-package problems.offer;
+package problems.lcof;
 
 import problems.common.util.TreeNode;
 
@@ -29,7 +29,7 @@ import java.util.Map;
  * @author kyan
  * @date 2020/2/22
  */
-public class Offer_7_BuildTree {
+public class LCOF_7_BuildTree {
 
     /**
      * 3 ms, 96.62%
