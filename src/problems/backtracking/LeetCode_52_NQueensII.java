@@ -49,11 +49,11 @@ public class LeetCode_52_NQueensII {
 
         public int totalNQueens(int n) {
             queens = new int[n];
-            solveTotalNQueensHelper(0, n);
+            solveTotalNQueensBackTrack(0, n);
             return total;
         }
 
-        private void solveTotalNQueensHelper(int row, int n) {
+        private void solveTotalNQueensBackTrack(int row, int n) {
             if (row == n) {
                 total++;
                 return;
@@ -61,7 +61,7 @@ public class LeetCode_52_NQueensII {
             for (int col = 0; col < n; col++) {
                 if (isValid(row, col, n)) {
                     queens[row] = col;
-                    solveTotalNQueensHelper(row+1, n);
+                    solveTotalNQueensBackTrack(row+1, n);
                 }
             }
         }

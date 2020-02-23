@@ -11,10 +11,12 @@ public class EightQueens {
         /**
          * int数组存放最终结果，下标表示行，值表示列，例如 result[0]=1 表示第0行，第1列
          */
-        private int[] result = new int[8];
+        private int[] queens = new int[8];
+        private int total;
 
         public void solve8Queens() {
             solve8QueensHelper(0);
+            System.out.println("Total: " + total);
         }
 
         /**
@@ -23,11 +25,12 @@ public class EightQueens {
         private void solve8QueensHelper(int row) {
             if (row == 8) {
                 print8queens();
+                total++;
                 return;
             }
             for (int col = 0; col < 8; col++) {
                 if (isOk(row, col)) {
-                    result[row] = col;
+                    queens[row] = col;
                     solve8QueensHelper(row+1);
                 }
             }
@@ -39,12 +42,12 @@ public class EightQueens {
             //行确定的情况下，左上的列为 col-1，右上的列为 col+1
             int leftUp = col - 1, rightUp = col + 1;
             for (int i = row-1; i >= 0; i--) {
-                if (result[i] == col) return false;
+                if (queens[i] == col) return false;
                 if (leftUp >= 0) {
-                    if (result[i] == leftUp) return false;
+                    if (queens[i] == leftUp) return false;
                 }
                 if (rightUp < 8) {
-                    if (result[i] == rightUp) return false;
+                    if (queens[i] == rightUp) return false;
                 }
                 --leftUp;
                 ++rightUp;
@@ -55,7 +58,7 @@ public class EightQueens {
         private void print8queens() {
             for (int row = 0; row < 8; row++) {
                 for (int col = 0; col < 8; col++) {
-                    if (result[row] == col) System.out.print("Q ");
+                    if (queens[row] == col) System.out.print("Q ");
                     else System.out.print(". ");
                 }
                 System.out.println();
