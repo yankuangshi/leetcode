@@ -15,6 +15,8 @@
 |23|[合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/LeetCode_23_MergeKLists.java)|困难|heap, linked lis, divide and conquer|
 |24|[两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_24_SwapPairs.java)|中等|linked list|
 |30|[串联所有单词的子串](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/LeetCode_30_SubstringWithConcatenation.java)|困难|hash table, two pointers, string, sliding window|
+|39|[组合总和](https://leetcode-cn.com/problems/combination-sum/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/backtracking/LeetCode_39_CombinationSum.java)|中等|array, backtracking|
+|40|[组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/backtracking/LeetCode_40_CombinationSumII.java)|中等|array, backtracking|
 |42|[接雨水 I](https://leetcode-cn.com/problems/trapping-rain-water)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/LeetCode_42_TrappingRainWater.java)|困难|stack, array, two pointers|
 |46|[全排列](https://leetcode-cn.com/problems/permutations/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/backtracking/LeetCode_46_Permutations.java)|中等|backtracking|
 |47|[全排列 II](https://leetcode-cn.com/problems/permutations-ii/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/backtracking/LeetCode_47_PermutationsII.java)|中等|backtracking|
@@ -61,6 +63,7 @@
 |209|[长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/LeetCode_209_MinSizeSubArraySum.java)|中等|array, two pointers, binary search, sliding window|
 |211|[添加与搜索单词](https://leetcode-cn.com/problems/add-and-search-word-data-structure-design/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/LeetCode_211_WordDictionary.java)|中等|trie, backtracking, design|
 |215|[数组中第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/LeetCode_215_KthLargest.java)|中等|heap, divide and conquer|
+|216|[组合总和 III](https://leetcode-cn.com/problems/combination-sum-iii/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/backtracking/LeetCode_216_CombinationSumIII.java)|中等|array, backtracking|
 |225|[用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/LeetCode_225_ImplementStackUsingQueue.java)|简单|stack, design|
 |226|[翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/tree/LeetCode_226_InverseBinaryTree.java)|简单|tree|
 |232|[用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/LeetCode_232_ImplementQueueUsingStack.java)|简单|stack, design|
