@@ -8,6 +8,7 @@
 |3|[无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/LeetCode_3_LongestSubstring.java)|中等|hash table, two pointers, string, sliding window|
 |11|[盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/LeetCode_11_ContainerWithMostWater.java)|中等|array, two pointers|
 |15|[三数之和](https://leetcode-cn.com/problems/3sum)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/LeetCode_15_ThreeSum.java)|中等|array, two pointers|
+|17|[电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/backtracking/LeetCode_17_LetterCombinations.java)|中等|string, backtracking|
 |18|[四数之和](https://leetcode-cn.com/problems/4sum)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/array/LeetCode_18_FourSum.java)|中等|array, two pointers|
 |19|[删除链表的倒数第N个节点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_19_RemoveNthFromEnd.java)|中等|linked list, two pointers|
 |20|[有效的括号](https://leetcode-cn.com/problems/valid-parentheses)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/LeetCode_20_ValidParentheses.java)|简单|stack, string|
