@@ -13,6 +13,7 @@
 |19|[删除链表的倒数第N个节点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_19_RemoveNthFromEnd.java)|中等|linked list, two pointers|
 |20|[有效的括号](https://leetcode-cn.com/problems/valid-parentheses)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/LeetCode_20_ValidParentheses.java)|简单|stack, string|
 |21|[合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_21_MergeTwoLists.java)|简单|linked list|
+|22|[括号生成](https://leetcode-cn.com/problems/generate-parentheses/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/backtracking/LeetCode_22_GenerateParentheses.java)|中等|string, backtracking|
 |23|[合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/LeetCode_23_MergeKLists.java)|困难|heap, linked lis, divide and conquer|
 |24|[两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_24_SwapPairs.java)|中等|linked list|
 |30|[串联所有单词的子串](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/LeetCode_30_SubstringWithConcatenation.java)|困难|hash table, two pointers, string, sliding window|
