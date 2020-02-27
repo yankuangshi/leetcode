@@ -100,38 +100,39 @@ public class LeetCode_22_GenerateParentheses {
 
     /**
      * 解法二（代码优化，效率更高）
-     * 2 ms, 53.47%
-     * 39.7 MB, 5.00%
+     * 1 ms, 99.32%
+     * 39.1 MB, 5.00%
      */
     public static class Solution2 {
 
         public List<String> generateParenthesis(int n) {
             List<String> res = new ArrayList<>();
             if (n == 0) return res;
-            backtrack("", 0, 0, n, res);
+            backtrack(new StringBuffer(), 0, 0, n, res);
             return res;
         }
 
-        private void backtrack(String result, int leftCount, int rightCount, int n, List<String> res) {
+        private void backtrack(StringBuffer buffer, int leftCount, int rightCount, int n, List<String> res) {
             if (leftCount == n && rightCount == n) {
-                res.add(result);
+                res.add(buffer.toString());
                 return;
             }
             if (leftCount < rightCount) {
                 return;
             }
             if (leftCount < n) {
-                backtrack(result + "(", leftCount + 1, rightCount, n, res);
+                backtrack(buffer.append("("), leftCount + 1, rightCount, n, res);
+                buffer.deleteCharAt(buffer.length() - 1);
             }
             if (rightCount < n) {
-                backtrack(result + ")", leftCount, rightCount + 1, n, res);
+                backtrack(buffer.append(")"), leftCount, rightCount + 1, n, res);
+                buffer.deleteCharAt(buffer.length() - 1);
             }
         }
     }
 
     public static void main(String[] args) {
-        System.out.println(new Solution1().generateParenthesis(1));
+        System.out.println(new Solution1().generateParenthesis(2));
         System.out.println(new Solution2().generateParenthesis(2));
-        System.out.println(new Solution1().generateParenthesis(3));
     }
 }

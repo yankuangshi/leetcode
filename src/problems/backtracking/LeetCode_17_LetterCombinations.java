@@ -22,55 +22,120 @@ import java.util.*;
 public class LeetCode_17_LetterCombinations {
 
     /**
-     * 3 ms, 11.96%
+     * 解法一和解法二类似，只是一个用hashmap存储数字到字母映射，一个用数组存储数字到字母映射
+     * 7 ms, 9.4%
      * 38.5 MB, 5.11%
      */
-    public static class Solution {
+    public static class Solution1 {
 
-        private List<String> res = new ArrayList<>();
-        private static Map<Character, List<Character>> digit2Letter;
-
-        static {
-            digit2Letter = new HashMap<>();
-            digit2Letter.put('1', new ArrayList<>());
-            digit2Letter.put('2', Arrays.asList('a', 'b', 'c'));
-            digit2Letter.put('3', Arrays.asList('d', 'e', 'f'));
-            digit2Letter.put('4', Arrays.asList('g', 'h', 'i'));
-            digit2Letter.put('5', Arrays.asList('j', 'k', 'l'));
-            digit2Letter.put('6', Arrays.asList('m', 'n', 'o'));
-            digit2Letter.put('7', Arrays.asList('p', 'q', 'r', 's'));
-            digit2Letter.put('8', Arrays.asList('t', 'u', 'v'));
-            digit2Letter.put('9', Arrays.asList('w', 'x', 'y', 'z'));
-        }
+        private static Map<Character, String> digit2Letters = new HashMap<Character, String>() {
+            {
+                put('1', "");
+                put('2', "abc");
+                put('3', "def");
+                put('4', "ghi");
+                put('5', "jkl");
+                put('6', "mno");
+                put('7', "pqrs");
+                put('8', "tuv");
+                put('9', "wxyz");
+            }
+        };
 
         public List<String> letterCombinations(String digits) {
+            List<String> res = new ArrayList<>();
             if (digits.isEmpty() || (digits.length() == 1 && digits.equals("1"))) return res;
-            //clean 1
-            digits = digits.replaceAll("1", "");
-            backtrack(digits, 0, new ArrayList<Character>());
+            backtrack(digits, 0, "", res);
             return res;
         }
 
-        private void backtrack(String digits, int curIndex, List<Character> comb) {
-            if (comb.size() == digits.length()) {
-                StringBuilder builder = new StringBuilder();
-                for (Character character : comb) {
-                    builder.append(character);
-                }
-                res.add(builder.toString());
+        private void backtrack(String digits, int index, String s, List<String> res) {
+            if (index == digits.length()) {
+                res.add(s);
                 return;
             }
-//            if (digits.charAt(curIndex) == '1') return;
-            List<Character> chars = digit2Letter.get(digits.charAt(curIndex));
-            for (int i = 0; i < chars.size(); i++) {
-                comb.add(chars.get(i));
-                backtrack(digits, curIndex+1, comb);
-                comb.remove(comb.size()-1);
+            String letters = digit2Letters.get(digits.charAt(index));
+            for (int i = 0; i < letters.length(); i++) {
+                backtrack(digits, index + 1, s + letters.charAt(i), res);
+            }
+        }
+    }
+
+    public static class Solution2 {
+
+        private String[] digit2Letters = {
+            "",     //按键1
+            "abc",  //按键2
+            "def",  //按键3
+            "ghi",  //按键4
+            "jkl",  //按键5
+            "mno",  //按键6
+            "pqrs", //按键7
+            "tuv",  //按键8
+            "wxyz"  //按键9
+        };
+
+        public List<String> letterCombinations(String digits) {
+            List<String> res = new ArrayList<>();
+            if (digits.isEmpty() || (digits.length() == 1 && digits.equals("1"))) return res;
+            backtrack(digits, 0, "", res);
+            return res;
+        }
+
+        private void backtrack(String digits, int index, String s, List<String> res) {
+            if (index == digits.length()) {
+                res.add(s);
+                return;
+            }
+            String letters = digit2Letters[digits.charAt(index) - '1'];
+            for (int i = 0; i < letters.length(); i++) {
+                backtrack(digits, index + 1, s + letters.charAt(i), res);
+            }
+        }
+    }
+
+    /**
+     * 解法一和二之所以慢是因为字符串拼接使用了String所致，解法三中改为StringBuffer，效率可以大大提升
+     * 1 ms, 92.43%
+     * 37.9 MB, 5.28%
+     */
+    public static class Solution3 {
+
+        private String[] digit2Letters = {
+                "",     //按键1
+                "abc",  //按键2
+                "def",  //按键3
+                "ghi",  //按键4
+                "jkl",  //按键5
+                "mno",  //按键6
+                "pqrs", //按键7
+                "tuv",  //按键8
+                "wxyz"  //按键9
+        };
+
+        public List<String> letterCombinations(String digits) {
+            List<String> res = new ArrayList<>();
+            if (digits.isEmpty() || (digits.length() == 1 && digits.equals("1"))) return res;
+            backtrack(digits, 0, new StringBuffer(), res);
+            return res;
+        }
+
+        private void backtrack(String digits, int index, StringBuffer buffer, List<String> res) {
+            if (index == digits.length()) {
+                res.add(buffer.toString());
+                return;
+            }
+            String letters = digit2Letters[digits.charAt(index) - '1'];
+            for (int i = 0; i < letters.length(); i++) {
+                backtrack(digits, index + 1, buffer.append(letters.charAt(i)), res);
+                buffer.deleteCharAt(buffer.length() - 1);
             }
         }
     }
 
     public static void main(String[] args) {
-        System.out.println(new Solution().letterCombinations("22"));
+        System.out.println(new Solution1().letterCombinations("23"));
+        System.out.println(new Solution2().letterCombinations("23"));
+        System.out.println(new Solution3().letterCombinations("23"));
     }
 }
