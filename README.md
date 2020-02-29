@@ -17,6 +17,7 @@
 |23|[合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/heap/LeetCode_23_MergeKLists.java)|困难|heap, linked lis, divide and conquer|
 |24|[两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/linkedlist/LeetCode_24_SwapPairs.java)|中等|linked list|
 |30|[串联所有单词的子串](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/string/LeetCode_30_SubstringWithConcatenation.java)|困难|hash table, two pointers, string, sliding window|
+|37|[解数独](https://leetcode-cn.com/problems/sudoku-solver/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/backtracking/LeetCode_37_SudokuSolver.java)|困难|hash table, backtracking|
 |39|[组合总和](https://leetcode-cn.com/problems/combination-sum/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/backtracking/LeetCode_39_CombinationSum.java)|中等|array, backtracking|
 |40|[组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/backtracking/LeetCode_40_CombinationSumII.java)|中等|array, backtracking|
 |42|[接雨水 I](https://leetcode-cn.com/problems/trapping-rain-water)|[java](https://github.com/yankuangshi/leetcode/blob/master/src/problems/stack/LeetCode_42_TrappingRainWater.java)|困难|stack, array, two pointers|
